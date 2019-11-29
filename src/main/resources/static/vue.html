@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>入门程序</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+    <style>
+        #div{
+            background-color: aquamarine;
+            height:200px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <font v-blind:size="dx" v-bind:color="ys" v-text="ss">千峰教育</font>
+    {{message}}
+    <button v-on:click="fun2('buhao')">dian</button>
+    vue:<input type="text" v-on:keydown="fun3($event)">
+    <div id="div" v-on:mouseover="fun4($mm)" >
+        <div @mouseover="fun1" >
+            <textarea @mouseover="fun5($ee)">这是一个文件域</textarea>
+        </div>
+    </div>
+
+</div>
+</body>
+<script >
+    new Vue({
+
+        el:'#app', //表示当前vue对象接管了div区域
+        data:{
+            message:"你好",
+            ss:"你妹",
+            ys:"red",
+            dx:"20"
+        },
+        methods:{
+            fun2:function(msg){
+                this.message=msg
+            },
+            fun3:function (event) {
+                var keyCode = event.keyCode;
+                if(keyCode < 48  || keyCode > 57){
+                    event.preventDefault();
+                }
+                alert(keyCode);
+
+            },
+            fun4:function(mm) {
+                alert("鼠标移动到了DIV里");
+
+            },
+            fun5:function (ee) {
+                alert("鼠标移动到了文件里");
+                ee.stopPropagation();
+            }
+        }
+
+    });
+</script>
+</html>

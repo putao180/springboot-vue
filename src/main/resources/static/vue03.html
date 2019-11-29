@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <font v-blind:color="yx" v-model:="users"></font>
+        姓名<input type="text" name="username" v-model="user.username">
+        姓名<input type="text" name="age" v-model="user.username">
+        <ul>
+            <li v-for="(item,index) in arr">{{item}}===={{index}}</li>
+            <li v-for="(item,index) in user">{{item}}===={{index}}</li>
+            <li v-for="(key,value) in product">{{key}}===={{value}}</li>
+
+        </ul>
+<table border="1" align="center" width="500" style="background-color: aquamarine;border: darkmagenta">
+    <tr>
+        <td style="text-align: center" >序号</td>
+        <td style="text-align: center" >姓名</td>
+        <td style="text-align: center" >年龄</td>
+    </tr>
+    <tr v-for="(ss,index) in users">
+        <td style="text-align: center" >{{index+1}}</td>
+        <td style="text-align: center" >{{ss.username}}</td>
+        <td style="text-align: center" >{{ss.age}}</td>
+    </tr>
+</table>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            yx:"red",
+            user:{
+                username:"张三",
+                age:"14",
+
+            },
+            arr:[1,2,3,4,5,6],
+            product:{
+                id:1,
+                name:"笔记本电脑",
+                price:5333
+            },
+            users:[
+                {username:"宇智波鼬",age:"21"},
+                {username:"鬼鲛",age:"22"},
+                {username:"自来也",age:"23"},
+                {username:"带土",age:"24"},
+                {username:"斑",age:"25"}
+            ]
+        }
+    })
+
+</script>
+</html>

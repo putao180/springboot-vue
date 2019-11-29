@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<style>
+    #div {
+        background-color: red;
+        width:300px;
+        height:300px;
+    }
+</style>
+    <div id="app">
+        {{message}}
+        {{number+1}}
+        {{ok?'yes':'no'}}
+        <button v-on:click="fun()">请点击</button><hr>
+        <input type="text" v-on:keydown="fun2($event)">
+        <div @mouseover="fun3" id="div">
+            <textarea @mouseover="fun4($event)">这是一个文件域</textarea>
+
+        </div>
+
+        <form @submit.prevent action="http://www.1000phone.com" method="post" >
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            message:'摇晃的红酒杯',
+            number:2,
+            ok:false
+        },
+        methods:{
+            fun:function (msg) {
+                msg="hello";
+                this.message=msg;
+
+            },
+            fun2:function (ss) {
+                var keyCode = ss.keyCode;
+                if(keyCode<48||keyCode>57){
+                    alert("1");
+                    //不让键盘的按键起作用
+                    ss.preventDefault();
+                }
+            },
+            fun3:function () {
+                alert("鼠标悬停在div上了");
+            },
+            fun4:function(event){
+                alert("鼠标悬停在textarea上了");
+                event.stopPropagation();
+            }
+        }
+    })
+</script>
+</html>

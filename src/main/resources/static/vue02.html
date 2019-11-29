@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>woshi</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+
+</head>
+<body>
+<div id="app">
+    {{message}}
+    vue:<input type="text" v-on:keydown.enter="fun3">
+    <input  type="text" name="name" v-model="user.name">
+    <input type="text" name="age" v-model="user.name">
+    <button v-on:click="fun2">dianji</button>
+    <button ><a href="/add">添加</a></button>
+
+</div>
+</body>
+<script>
+    new Vue({
+        el:'#app', //表示当前vue对象接管了div区域
+        data:{user: {
+
+                name: "xiaowang",
+                age: "18"
+            }},
+        methods:{
+            fun3:function () {
+                alert("当前按下的是回车键");
+            },
+
+            fun2:function () {
+                alert(this.user.name);
+                alert(this.user.age);
+            },
+        }
+    });
+</script>
+</html>

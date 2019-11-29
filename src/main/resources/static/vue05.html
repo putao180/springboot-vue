@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/vuejs-2.5.16.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <table border="1" align="center" width="500" style="background-color: aquamarine;border: darkmagenta">
+            <tr>
+                <td style="text-align: center" >序号</td>
+                <td style="text-align: center" >姓名</td>
+                <td style="text-align: center" >年龄</td>
+                <td style="text-align: center" >地址</td>
+                <td style="text-align: center" >年龄</td>
+
+            </tr>
+            <tr v-for="(ss,index) in users">
+                <td style="text-align: center" >{{index+1}}</td>
+                <td style="text-align: center" >{{ss.name}}</td>
+                <td style="text-align: center" >{{ss.pass}}</td>
+                <td style="text-align: center" >{{ss.addr}}</td>
+                <td style="text-align: center" >{{ss.status}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            users:[]
+        },
+        mounted:function(){
+          _this=this;
+            axios.get("/findAll").then(function(res){
+
+                _this.users=res.data;
+            })
+        }
+    })
+
+</script>
+</html>

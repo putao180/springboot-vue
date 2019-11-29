@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历数组</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in arr">{{item}}==={{index}}</li>
+            <li v-for="(key,value) in product">{{key}}==={{value}}</li>
+
+        </ul>
+        <table border="1">
+            <tr>
+                <td>序号</td>
+                <td>编号</td>
+                <td>名称</td>
+                <td>价格</td>
+            </tr>
+            <tr v-for="(pro,index) in products ">
+                <td>{{index}}</td>
+                <td>{{pro.id}}</td>
+                <td>{{pro.name}}</td>
+                <td>{{pro.price}}</td>
+            </tr>
+        </table>
+        <span v-if="flag">千峰教育</span>
+        <span v-show="flag">千峰</span>
+        <button @click="toggle">切换</button>
+    </div>
+</body>
+    <script>
+        new  Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3,4,5],
+                product:{
+                    id:1,
+                    name:"笔记本电脑",
+                    price:20000,
+
+                },
+                products:[
+                    { id:1,name:"笔记本电脑",price:5000 },
+                    { id:2,name:"手机",price:3000 },
+                    { id:3,name:"电视",price:4000 }
+                ],
+                flag:false
+            },
+            methods:{
+                toggle:function(){
+                    this.flag = !this.flag;
+                }
+            }
+        })
+    </script>
+</html>

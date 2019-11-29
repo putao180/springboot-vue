@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <span v-if="flag">陶璞</span>
+        <span v-show="flag">1908</span>
+        <button @click="fun($ww)">点击</button>
+    </div>
+</body>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                flag:false
+            },
+            methods:{
+                fun:function (ww) {
+                    this.flag=!this.flag
+
+                }
+            }
+        })
+
+    </script>
+</html>

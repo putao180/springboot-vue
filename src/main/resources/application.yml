@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/taopu
+    username: root
+    password: 350845
+  jpa:
+    database: MySQL
+    show-sql: true
+    generate-ddl: true
+  mail:
+    host: smtp.qq.com
+    username: 1099227857@qq.com
+    #QQ邮箱的授权码
+    password: jgxtubxfzpcnbadi
+    default-encoding: UTF-8
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+
+qiniu:
+  accesskey: JVPGGk6JMDDkaN-fFtxk_TewNMKOFOBdpr2HxNWP
+  secretKey: J57qVuja1YB7YQkhrvgViRbuzM0r8QlGJS59EGnn
+  bucket:  taopic
+  url: http://q1bil941g.bkt.clouddn.com/
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.tp.domain
+server:
+  port: 8083

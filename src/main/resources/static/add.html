@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <form action="/add" method="post">
+            用户名:<input type="text" name="username"  v-model="user.username">
+            密码:<input type="text" name="age" v-model="user.age">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            user:{
+                username:"zhangsan",
+                age:"18"
+            }
+        }
+    })
+</script>
+</html>
